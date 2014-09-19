@@ -1,37 +1,37 @@
 Koding
 ======
 
-**Note**: Installations to Koding requires a free account on Koding.com.
+**Chú ý**: Việc cài đặt trên Koding cần có tài khoản miễn phí trên Koding.com.
 
-1. Create an account or log in to `Koding.com <http://koding.com>`
-2. Click the Green Icon at the top that looks like ``>_``
-3. You will see your VM with Off to the right in red letters, click this, to power on your VM
-4. Click it again when it says Ready.
-5. You should now be inside a terminal window. The installation instructions are close to Ubuntu's, but vary slightly, as certain packages are already installed.
-6. Firstly, we need to make sure we're up to date - ``sudo apt-get update && sudo apt-get upgrade``
-7. Enter your password you used to sign up, if you signed up using Github or another 3rd party, you will need to set one in your Account Settings. Then come back.
-8. Now run the following ``sudo apt-get install python-software-properties python g++ make``
-9. Now we install NodeBBs other dependencies - ``sudo apt-get install redis-server imagemagick``
-10. Next, we clone NodeBB into a NodeBB folder - ``git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git nodebb`` (Optional: Replace nodebb at the end if you want the folder to be a different name)
-11. Now enter the NodeBB folder - ``cd nodebb`` (unless you changed the foldername in the previous step, if you somehow forgot what you called it, run ``ls`` to see the name of the folder)
-12. Now we install all the dependencies of NodeBB - ``npm install`` (could take a minute or two)
-13. Set up nodebb using - ``./nodebb setup``
-14. The first setup question will ask for the domain name, this will vary, do not use localhost. Your domain name is ``http://{yourkodingusername}.kd.io`` - Your username is visible in the top right corner.
-15. Complete the setup (defaults after the domain name are fine to accept, so press enter a few times until you get to "Create an Admin"
-16. Create an Admin Username and password etc, it will then create categories and other things that make NodeBB awesome.
-17. Now we can start NodeBB - ``./nodebb start``
-18. Open another tab in your browser of choice and navigate to ``http://{yourkodingusername}.kd.io:4567`` (assuming you didn't change the port number during setup)
-19. You will see a screen to continue to your page, click the link about half way down to continue to your site.
+1. Tạo tài khoản hoặc đăng nhập vào `Koding.com <http://koding.com>`
+2. Nhấn vào nút màu xanh lá trông như sau ``>_``
+3. Bạn sẽ nhìn thấy VM của bạn với chữ Off ở bên phải màu đỏ, hãy nhấn vào đó để bật VM
+4. Nhấn tiếp vào nó khi có thông báo Ready.
+5. Bây giờ bạn đang ở trong cửa sổ terminal. Việc cài đặt gần giống với Ubuntu, nhưng hơi khác một chút vì một số gói đã được cài đặt sẵn.
+6. Đầu tiên, ta phải chắc chắn rằng mọi thứ đã được cập nhật - ``sudo apt-get update && sudo apt-get upgrade``
+7. Nhập vào mật khẩu mà bạn đã đăng ký, nếu bạn đăng ký bằng Github hoặc qua 1 bên thứ ba nào khác, bạn phải cài đặt 1 cái trong trang cài đặt tài khoản. Sau đó quay trở lại.
+8. Bây giờ chạy lệnh sau ``sudo apt-get install python-software-properties python g++ make``
+9. Cài đặt gói hỗ trợ - ``sudo apt-get install redis-server imagemagick``
+10. Tiếp, tạo bản sao NodeBB vào trong NodeBB folder - ``git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git nodebb`` (Tùy chọn: Thay thế nodebb ở cuối nếu bạn muốn có tên folder khác)
+11. Truy cập vào NodeBB folder - ``cd nodebb`` (trừ khi bạn đã đặt tên folder khác ở bước trước và nếu bạn dã quên tên folder, chay ``ls`` để nhìn thấy tên của folder)
+12. Bây giờ chúng ta cài đặt các trình phụ thuộc của NodeBB - ``npm install`` (có thể mất 1 đến 2 phút)
+13. Cài đặt nodebb bằng dòng lệnh - ``./nodebb setup``
+14. Câu hỏi đầu tiên sẽ hỏi tên miền của bạn, đừng để nó là localhost. Tên miền của bạn sẽ như sau ``http://{yourkodingusername}.kd.io`` - Username của bạn có thể nhìn thấy ở góc trên cùng bên phải.
+15. Hoàn tất việc cài đặt (giá trị mặc định sau khi cài đặt tên miền đều có thể chấp nhận, hãy ấn enter cho đến khi có yêu cầu "Create an Admin"
+16. Tạo username và mật khẩu admin, sau đó nó sẽ tạo các categories và một vài thứ khác mà làm NodeBB tuyệt vời.
+17. Giờ chúng ta có thể chạy NodeBB - ``./nodebb start``
+18. Mở tab khác trên trình duyệt và truy cập vào địa chỉ ``http://{yourkodingusername}.kd.io:4567`` (nếu như bạn không thay đổi cổng mặc định trong phần cài đặt)
+19. Bạn sẽ nhìn thấy 1 màn hình để tiếp tục truy cập vào trang của bạn, nhấn vào link ở nửa bên dưới để tiếp tục truy cập trang.
 
-Congratulations, you've successfully installed NodeBB on Koding.com
+Chúc mừng, bạn đã cài đặt thành công NodeBB trên Koding.com
 
-If these instructions are unclear or if you run into trouble, please let us know by `filing an issue <https://github.com/NodeBB/NodeBB/issues>`_. (Be sure to mention @a5mith in your issue, as I wrote the guide)
+Nếu hướng dẫn trên không rõ ràng hoặc bạn gặp rắc rối, hãy cho chúng tôi biết bằng cách `tạo báo cáo <https://github.com/NodeBB/NodeBB/issues>`_. (Hãy tag @a5mith trong issue của bạn, vì tôi đã viết hướng dẫn này)
 
-Some issues with running on Koding
+Một vài vấn đề khi chạy trên Koding
 ---------------------
 
-As Koding is free, it does come with some nuances to a regular cloud host:
+Vì Koding là miễn phí, nên nó sẽ có 1 vài sắc thái của host cloud:
 
-1. Your VM will switch off after 15 minutes of inactivity. This doesn't mean the website unfortunately, but your Terminal Window (You can bypass this by keeping the terminal window open and running ``ls`` every 10 minutes or so to refresh the timer)
-2. It can be temperamental, sometimes you may receive "Your VM is unavailable, try again later", you can try logging out and back in, refreshing your page, or filing an issue with their support team.
-3. Koding.com uses Ubuntu to host your VM, so a basic knowledge of Ubuntu would always help.
+1. VM sẽ tự động tắt sau 15 phút không có hoạt động. Điều này không may là không ám chỉ trang web, mà là cửa sổ Terminal (Bạn có thể khắc phục điều này bằng cách luôn mở terminal và chạy lệnh ``ls`` mỗi 10 phút để làm mới lại bộ đếm)
+2. Thỉnh thoảng bạn sẽ nhận được thông báo rằng "Your VM is unavailable, try again later", bạn có thể thử đăng xuất và đăng nhập lại, tải lại trang, hoặc báo cáo lỗi với đội hỗ trợ của họ.
+3. Koding.com sử dụng ubuntu để host VM, vì vậy hiểu biết căn bản về Unbuntu sẽ có ích.

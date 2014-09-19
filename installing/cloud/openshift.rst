@@ -1,106 +1,106 @@
 Openshift Paas
 ===========
 
-The following are installation instructions for the `Openshift <http://openshift.com>` Paas.
+Hướng dẫn dưới đây dành cho `Openshift <http://openshift.com>` Paas.
 
-**Step 1:** Create a new application :
+**Bước 1:** Tạo ứng dụng mới :
 
 .. code:: bash
 	
 	rhc app create nodebb nodejs-0.10
 
-**Step 2:** Add cartridge Redis
+**Bước 2:** Thêm cartridge Redis
 
 .. code:: bash
 	
 	rhc add-cartridge http://cartreflect-claytondev.rhcloud.com/reflect?github=smarterclayton/openshift-redis-cart -a nodebb
 
-**Step 3:** SSH to the application
+**Bước 3:** SSH đến ứng dụng của bạn
 
 .. code:: bash
 	
 	rhc app ssh -a nodebb
 	
-**Step 4:** Find out your instance’s ip address NodeJS and Redis so NodeBB can bind to it correctly. This is one of Openshift’s demands and seems to be the only way it will work. You can’t use $IP in your config.json either (which means you can’t enter $IP in the node app –setup). First line : NodeJS and second line : Redis
-The ouput of the echo $REDIS_CLI like this : -h ip_redis -p port_redis -a password
+**Bước 4:** Xác định ip của NodeJS và Redis để NodeBB có thể chạy chính xác. Đây là một yêu cầu của Openshift và là cách duy nhất để nó chạy. Bạn không thể sử dụng $IP trong config.json (Có nghĩa là bạn không thể nhập $IP trong lệnh node app –setup). Dòng đầu tiên : NodeJS và dòng thứ hai : Redis
+Giá trị xuất ra của lệnh echo $REDIS_CLI sẽ như sau : -h ip_redis -p port_redis -a password
 
 .. code:: bash
 
   echo $OPENSHIFT_NODEJS_IP && echo $REDIS_CLI
   
-**Step 5:** Exit SSH
+**Bước 5:** Thoát SSH
 
-**Step 6:** Add the source code of Nodebb to the repository application
+**Bước 6:** Thêm mã nguồn của NodeBB vào repository của ứng dụng
 
 .. code:: bash
 	
 	cd nodebb && git remote add upstream -m master https://github.com/NodeBB/NodeBB.git
 
-**Step 7:** Get the files and push
+**Bước 7:** Lấy file về và push
 
 .. code:: bash
 	
 	git pull -s recursive -X theirs upstream v0.5.x && git push
 	
-**Step 8:** Stop the application
+**Bước 8:** Ngừng chạy ứng dụng
 
 .. code:: bash
 	
 	rhc app stop -a nodebb
 
-**Step 9:** SSH to the application
+**Bước 9:** SSH vào ứng dụng
 
 .. code:: bash
 	
 	rhc app ssh -a nodebb
 
-**Step 10:** Edit the environnement NodeJS on the terminal with the SSH
+**Bước 10:** Sửa môi trường chạy của NodeJS trong terminal với SSH
 
 .. code:: bash
 	
 	cd ~/nodejs/configuration && nano node.env
 	
-**Step 11:** Replace server.js by app.js and exit the editor
+**Bước 11:** Thay server.js bằng app.js và thoát khỏi editor
 
 .. code:: bash
 	
 	ctrl + x
 	
-**Step 12:** In other terminal, start the application
+**Bước 12:** Trong terminal khác, bắt đầu chạy ứng dụng
 
 .. code:: bash
 	
 	rhc app start -a nodebb
 
-**Step 13:** Start the setup of NodeBB on the terminal with the SSH
+**Bước 13:** Chạy mã cài đặt NodeBB trên terminal với SSH
 
 .. code:: bash
 	
 	cd ~/app-root/repo && node app --setup
 
-URL of this installation should be set to 'http://nodebb-username.rhcloud.com', replacing username with your username. 
+URL để cài đặt nên đặt là 'http://nodebb-username.rhcloud.com', thay username với username của bạn. 
 
 Port number : 8080
 
-IP or Hostname to bind to: Enter what your $OPENSHIFT_NODEJS_IP value holds here found in step 4.
+IP or Hostname to bind to: Nhập giá trị xuất của $OPENSHIFT_NODEJS_IP trong Bước 4.
 
-Host IP or address of your MongoDB instance: Enter what your $REDIS_CLI value holds here found in step 4.
+Host IP or address of your MongoDB instance: Nhập giá trị xuất của $REDIS_CLI trong Bước 4.
 
-Host port of your MongoDB instance: Enter what your $REDIS_CLI value holds here found in step 4.
+Host port of your MongoDB instance: Nhập giá trị xuất của $REDIS_CLI trong bước Bước 4.
 
-Redis Password: Enter what your $REDIS_CLI value holds here found in step 4.
+Redis Password: Nhập giá trị xuất của $REDIS_CLI trong Bước 4.
 
-**Step 14:** And the last one, in other terminal, restart the application
+**Bước 14:** Và cuối cùng, trong terminal khác, khởi động lại ứng dụng
 
 .. code:: bash
 	
 	rhc app restart -a nodebb
 
-And then open http://nodebb-username.rhcloud.com in your browser.
+Và sau đó truy cập http://nodebb-username.rhcloud.com trong trình duyệt.
 
-Note
+Chú ý
 ---------------------------------------
-Restart NodeBB in the admin doesn't work. Use :
+Restart NodeBB trong trang Admin không hoạt động. Sử dụng :
 
 .. code:: bash
 	

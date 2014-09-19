@@ -1,11 +1,11 @@
-Installing NodeBB on the Cloud
+Cài đặt NodeBB trên dịch vụ điện toán đám may (Cloud)
 ==============================
 
-The following are step-by-step guides to help you get up and running on the cloud using popular PaaS solutions.
+Dưới đây là hướng dẫn từng bước để bạn cài đặt và chạy trên các giải pháp PaaS.
 
 .. note::
 
-    If the PaaS solution of your choice is not listed here, please feel free to request a guide on our `community <https://community.nodebb.org>`_ or even better yet, submit one here.
+    Nếu giải pháp PaaS của bạn không có trong danh sách,  hãy hãy đưa ra yêu cầu trên `cộng đồng <https://community.nodebb.org>`_ của chúng tôi hoặc thậm chí tốt hơn, hãy đệ trình lên.
 
 
 

@@ -1,16 +1,17 @@
 .. image:: https://i.imgur.com/3yj1n6N.png
 
 |
-**NodeBB** is a next-generation discussion platform that utilizes web sockets for instant interactions and real-time notifications. NodeBB forums have many modern features out of the box such as social network integration and streaming discussions.
+**NodeBB** là một nền tảng diễn đàn thế hệ mới sử dụng công nghệ web sockets để có thể tương tác ngay lập tức và thông báo thời gian thực.
+NodeBB có nhiều tính năng hiện đại với tư duy sáng tạo như tương tác mạng xã hội và dòng chảy thảo luận.
 
-NodeBB is an open source project which can be forked on `GitHub <https://github.com/NodeBB/NodeBB/>`_. Don't forget to check out the ways that you can help contribute to this project, from translations, pull requests, and telling your friends.
+NodeBB là một dự án mã nguồn mở mà có thể tạo nhánh trên `GitHub <https://github.com/NodeBB/NodeBB/>`_. Đừng bỏ qua các cách mà bạn có thể giúp để đóng góp cho dự án này từ dịch thuật, yêu cầu "pull", và chia sẻ với bạn bè của bạn.
 
-Table of Contents
+Mục lục
 =================
 
 .. _installing:
 
-Installing NodeBB
+Cài đặt NodeBB
 -----------------
 
 .. toctree::
@@ -22,7 +23,7 @@ Installing NodeBB
 
 .. _configuring:
 
-Configuring NodeBB
+Cấu hình NodeBB
 ------------------
 
 .. toctree::
@@ -31,7 +32,7 @@ Configuring NodeBB
     configuring/databases
     configuring/proxies
 
-Running NodeBB
+Chạy NodeBB
 ------------------
 
 .. toctree::
@@ -39,7 +40,7 @@ Running NodeBB
 
     running/index
 
-Upgrading NodeBB
+Cập nhật NodeBB
 ------------------
 
 .. toctree::
@@ -47,7 +48,7 @@ Upgrading NodeBB
 
     upgrading/index
 
-Administrating NodeBB
+Quản trị NodeBB
 ---------------------
 
 .. toctree::
@@ -57,7 +58,7 @@ Administrating NodeBB
     admin/sso
     admin/uploads
 
-Contributing to NodeBB
+Đóng góp cho NodeBB
 ----------------------
 
 .. toctree::
@@ -66,7 +67,7 @@ Contributing to NodeBB
     contributing/style-guide
     modules/index
 
-Plugin System
+Hệ thống plugin
 -------------
 
 .. toctree::
@@ -76,7 +77,7 @@ Plugin System
     plugins/hooks
     plugins/settings
 
-Widgets System
+Hệ thống widgets
 --------------
 
 .. toctree::
@@ -84,7 +85,7 @@ Widgets System
 
     widgets/create
 
-Theming Engine
+Nền tảng giao diện
 --------------
 
 .. toctree::
@@ -94,7 +95,7 @@ Theming Engine
     themes/templates
 
 
-Developer's Resources
+Tài nguyên cho nhà phát triển
 ---------------------
 
 .. toctree::
@@ -102,7 +103,7 @@ Developer's Resources
 
     resources
 
-Helping out the NodeBB Project
+Trợ giúp cho dự án NodeBB
 ------------------------------
 
 .. toctree::
@@ -110,7 +111,7 @@ Helping out the NodeBB Project
 
     helping/index
 
-Troubleshooting / Help
+Khắc phục / Trợ giúp
 ----------------------
 
 .. toctree::
@@ -118,7 +119,7 @@ Troubleshooting / Help
 
     help/help
 
-Indices and tables
+Chỉ muc và bảng
 ==================
 
 * :ref:`genindex`

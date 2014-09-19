@@ -1,50 +1,50 @@
 Nitrous.IO
 ===========
 
-The following are installation instructions for the `Nitrous.IO <http://nitrous.io>`.
+Hướng dẫn cài đặt dưới đây dành cho `Nitrous.IO <http://nitrous.io>`.
 
-**Step 1:** Create a new application in boxes with NodeJS :
+**Bước 1:** Tạo ứng dụng mới với NodeJS :
 
 https://www.nitrous.io/app#/boxes/new
 
-**Step 2:** Open terminal / SSH to the application / Open IDE
+**Bước 2:** Mở terminal / SSH vào ứng dụng / Mở IDE
 
-**Step 3:** Get the files of NodeBB, unzip, delete master.zip and cd to the folder
+**Bước 3:** Lấy file của NodeBB về, unzip, xóa master.zip và cd vào folder
 
 .. code:: bash
 	
 	wget https://github.com/NodeBB/NodeBB/archive/v0.5.x.zip && unzip NodeBB-v0.5.x.zip && rm NodeBB-v0.5.x.zip && cd NodeBB-v0.5.x
 	
-**Step 4:** NPM Install
+**Bước 4:** NPM Install
 
 .. code:: bash
 
   npm install
   
-**Step 5:** Install Redis
+**Bước 5:** Cài đặt Redis
 
 .. code:: bash
 
   parts install redis
 
-**Step 6:** Setup NodeBB
+**Bước 6:** Cài đặt NodeBB
 
 .. code:: bash
 	
 	./nodebb setup 
 
-Leave everything as default but you can change yourself.
+Để mọi thứ là mặc định, nhưng bạn vẫn có thể tự thay đổi.
 
-I recommend the port number to bind : 8080
+Tôi đề nghị nên dùng cổng : 8080
 
-**Step 14:** And the last one, start NodeBB
+**Bước 14:** Và cuối cùng, khởi động NodeBB
 
 .. code:: bash
 	
 	./nodebb start
 
-And then open the "Preview URI" without port if you have put for port : 8080.
+Và sao đó mở "Preview URI" không có cổng nếu bạn đã đặt cổng là : 8080.
 
-Note
+Chú ý
 ---------------------------------------
-You can expand the resources of the application : http://www.nitrous.io/app#/n2o/bonus.
+Bạn có thể mở rộng tài nguyên của ứng dụng : http://www.nitrous.io/app#/n2o/bonus.

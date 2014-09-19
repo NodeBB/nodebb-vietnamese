@@ -1,22 +1,22 @@
 Windows 8
 ==========
 
-Required Software
+Phần mềm yêu cầu
 ---------------------
 
-First, install the following programs:
+Đầu tiên, cài đặt các chương trình dưới đây:
 
 * https://windows.github.com/
 * http://nodejs.org/
 * http://sourceforge.net/projects/redis/files/redis-2.6.10/
 * http://imagemagick.org/script/binary-releases.php#windows/
 
-You may have to restart your computer.
+Bạn có thể phải khởi động lại máy tính của mình.
 
-Running NodeBB
+Chạy NodeBB
 ---------------------
 
-Start Redis Server
+Khởi động Redis Server
 
 .. note::
 
@@ -24,60 +24,60 @@ Start Redis Server
 
 	**C:\\Program Files (x86)\\Redis\\StartRedisServer.cmd**
 
-Open Git Shell, and type the following commands. Clone NodeBB repo:
+Mở Git Shell, và đánh dòng lệnh sau. Tạo bản sao NodeBB repo:
 
 .. code:: bash
 
     git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git
 
-Enter directory: 
+Truy cập đường dẫn: 
 
 .. code:: bash
 
     cd NodeBB
 
-Install dependencies:
+Cài đặt trình phụ thuộc:
 
 .. code:: bash
 
     npm install
 
-Run interactive installation:
+Chạy trình tương tác cài đặt:
 
 .. code:: bash
 
     node app.js
 
-You may leave all of the options as default.
+Bạn có thể để mọi tùy chọn là mặc định.
 
-And you're done! After the installation, run 
+Và bạn đã xong! Sau khi cài đặt, chạy
 
 .. code:: bash
 
     node app.js
 
-You can visit your forum at ``http://127.0.0.1:4567/``
+Bạn có thể truy cập diễn đàn tại ``http://127.0.0.1:4567/``
 
 
-Developing on Windows
+Phát triển trên Windows
 ---------------------
 
-It's a bit of a pain to shutdown and restart NodeBB everytime you make changes. First install supervisor:
+Sẽ có đôi chút khó chịu khi phải tắt và khởi động lại NodeBB mỗi khi bạn thay đổi. Hãy cài đặt supervisor:
 
 .. code:: bash
 
     npm install -g supervisor
 
-Open up bash:
+Mở bash:
 
 .. code:: bash
 
     bash
 
-And run NodeBB on "watch" mode:
+Và chạy NodeBB trong chế độ "watch":
 
 .. code:: bash
 
     ./nodebb watch
 
-It will launch NodeBB in development mode, and watch files that change and automatically restart your forum.
+Nó sẽ bật NodeBB trong chế độ nhà phát triển, và sẽ theo dõi các file được thay đổi và tự động khởi động lại diễn đàn.

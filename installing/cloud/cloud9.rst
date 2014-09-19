@@ -1,74 +1,74 @@
 Cloud 9 IDE
 ===========
 
-The following are installation instructions for the `Cloud 9 <https://c9.io/>`_ web based IDE.
+Hướng dẫn cài đặt dưới đây dành cho IDE nền web `Cloud 9 <https://c9.io/>`_.
 
-**Step 1:** Clone NodeBB into a new workspace from GitHub. You can use the following command from the terminal:
+**Bước 1:** Tạo bản sao NodeBB vào workspace của bạn từ GitHub. Bạn có thể sử dụng lệnh sau từ terminal:
 
 .. code:: bash
 	
 	git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git nodebb
 
-The nodebb command after the git url will create a file called nodebb so you have to CD into the file after you have cloned NodeBB.
+Lệnh nodebb sau git url sẽ tạo 1 file tên là nodebb vì vậy bạn phải CD vào trong file đó sau khi bạn tạo xong bản sao của NodeBB.
 
-**Step 2:** Install redis with Cloud9's package manager
+**Bước 2:** Cài đặt redis với Cloud9's package manager
 
 .. code:: bash
 	
 	nada-nix install redis
 
-**Step 3:** Run your redis server on port 16379 - port 6379 tends to be already used on Cloud 9. The "&" makes the command run in the background. You can always terminate the process later. $IP is a Cloud 9 system variable containing the global ip of your server instance.
+**Bước 3:** Chạy redis server tại cổng 16379 - cổng 6379 đã được sử dụng bởi Cloud 9. "&" để dòng lệnh thực hiện nền. Bạn có thể hủy tiến trình bất cứ lúc nào sau này. $IP là biến hệ thống của Cloud 9 chứa địa chỉ IP instance của bạn.
 
 .. code:: bash
 	
 	redis-server --port 16379 --bind $IP &
 
-**Step 4:** Find out your instance's ip address so NodeBB can bind to it correctly. This is one of Cloud 9's demands and seems to be the only way it will work. You can't use $IP in your config.json either (which means you can't enter $IP in the node app --setup).
+**Bước 4:** Xác định địa chỉ IP instance của bạn để NodeBB có thể chạy chính xác. Đây là 1 trong những yêu cầu của Cloud 9 và có vẻ như là cách duy nhất mới làm nó chạy. Bạn không thể sử dụng $IP trong file config.json (có nghĩa là bạn không thể nhập $IP trong node app --setup).
 
 .. code:: bash
 	
 	echo $IP
 
-**Step 5:** Install NodeBB and it's dependencies:
+**Bước 5:** Cài NodeBB và trình phụ thuộc:
 
 .. code:: bash
 	
 	npm install
 
-**Step 6:** Run the nodebb setup utility:
+**Bước 6:** Chạy trình cài đặt nodebb:
 
 .. code:: bash
 	
 	node app --setup
 
-URL of this installation should be set to 'http://workspace_name-c9-username.c9.io', replacing workspace_name with your workspace name and username with your username. Note that as NodeBB is currently using unsecure http for loading jQuery you will find it much easier using http:// instead of https:// for your base url. Otherwise jQuery won't load and NodeBB will break.
+URL của phần cài đặt này nên là 'http://workspace_name-c9-username.c9.io', thay thế workspace_name bằng tên workspace của bạn và username với username của bạn. Chú ý rằng NodeBB vẫn đang sử dụng kết nối không bảo mật http để tải jQuery bạn sẽ thấy dễ sử dụng http:// hơn nhiều thay vì https:// cho url nền của bạn. Nếu không jQuery sẽ không tải và NodeBB sẽ không chạy.
 
-Port number isn't so important - Cloud9 may force you to use port 80 anyway. Just set it to 80. If this is another port, like 4567, that is also fine.
+Số cổng không thực sự quan trọng - Cloud9 sẽ bắt bạn sử dụng cổng 80. Hãy đặt nó là 80. Nếu nó là cổng khác, như 4567, cũng vẫn sẽ bình thường.
 
-Use a port number to access NodeBB? Again, this doesn't seem to make a big difference. Set this to no. Either will work.
+Use a port number to access NodeBB? Lại lần nữa, nó cũng không quá khác biệt. Hãy đặt là "no". Hoặc khác cũng vẫn được.
 
-Host IP or address of your Redis instance: localhost (the output of the $IP Command is also acceptable)
+Host IP or address of your Redis instance: localhost (giá trị xuất ra của lệnh $IP cũng được chấp nhận)
 
-IP or Hostname to bind to: Enter what your $IP value holds here found in step 4. It should look something like: 123.4.567.8
+IP or Hostname to bind to: Nhập giá trị mà $IP chứa ở Bước 4. Nó sẽ có thể giống như sau: 123.4.567.8
 
 Host port of your Redis instance: 16379
 
-Redis Password: Unless you have set one manually, Redis will be configured without a password. Leave this blank and press enter
+Redis Password: Trừ khi bạn cài đặt nó thủ công, không thì Redis sẽ được cấu hình không có mật khẩu. Hãy để trống và nhấn Enter
 
-First-time set-up will also require an Admin name, email address and password to be set.
+Lần cài đặt đầu tiên yêu cầu cần có Admin name, email address và password được đặt.
 
-And you're good to go! Don't use the Run button at the top if the IDE, it has been a little buggy for me. Besides, you're better off using the command line anyway. Run:
+Vậy là xong! Đừng sử dụng nút Run ở trên cùng của IDE, nó thường có lỗi đối với tôi. Bạn nên sử dụng command line thì tốt hơn. Chạy lệnh sau:
 
 .. code:: bash
 	
 	node app
 
-And then open http://workspace_name-c9-username.c9.io in your browser.
+Sau đó truy cập http://workspace_name-c9-username.c9.io tại trình duyệt.
 
-Troubleshooting
+Khắc phục
 ---------------
 
-A common problem is that the database hasn't been started. Make sure you have set Redis up correctly and ran 
+Vấn đề thường gặp là dịch vụ cơ sở dữ liệu chưa được khởi động. Hãy chắc chắn bạn đã cài đặt Redis 1 cách chính xác và chạy: 
 
 .. code:: bash
 	

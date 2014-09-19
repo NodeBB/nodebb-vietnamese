@@ -1,11 +1,11 @@
-NodeBB Installation by OS
+Cài đặt NodeBB theo HĐH
 =========================
 
-The following are step-by-step guides to help you get up and running.
+Dưới đây là hướng dẫn từng bước để giúp bạn cài đặt và chạy.
 
 .. note::
 
-    If your operating system is not listed here, please feel free to request a guide on our `community <https://community.nodebb.org>`_ or even better yet, submit one here.
+    Nếu hệ điều hành của bạn không có trong danh sách, hãy đưa ra yêu cầu trên `cộng đồng <https://community.nodebb.org>`_ của chúng tôi hoặc còn tốt hơn, hãy đệ trình lên.
 
 
 

@@ -2,16 +2,16 @@
 Arch Linux
 --------------------
 
-First, we install our base software stack.  Be sure to `pacman -Syu` first to make sure you've synced with the repositories and all other packages are up to date.
+Đầu tiên, chúng ta cài đặt gói phần mềm cơ bản trước. Hãy thực hiện `pacman -Syu` trước tiên để chắc chán rằng bạn đã đồng bộ với kho và tất cả các gói được cập nhật.
 
 .. code:: bash
 
 	$ sudo pacman -S git nodejs redis imagemagick
 
 
-If you want to use MongoDB, LevelDB, or another database instead of Redis please look at the :doc:`Configuring Databases <../../configuring/databases>` section.
+Nếu bạn muốn sử dụng MongoDB, LevelDB, hoặc một nền tảng cơ sở dữ liệu khác ngoài Redis, hãy đọc tài liệu :doc:`Cấu hình cơ sở dữ liệu <../../configuring/databases>`.
 
-Next, clone this repository:
+Tiếp theo, tạo bản sao của kho sau:
 
 
 .. code:: bash
@@ -19,7 +19,7 @@ Next, clone this repository:
 	$ git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git nodebb
 
 
-Obtain all of the dependencies required by NodeBB:
+Cài đặt các trình phụ thuộc được yêu cầu bởi NodeBB:
 
 .. code:: bash
 
@@ -27,7 +27,7 @@ Obtain all of the dependencies required by NodeBB:
     $ npm install
 
 
-Initiate the setup script by running the app with the ``setup`` flag:
+Bắt đầu đoạn mã cài đặt bằng cách chạy ứng dụng với thẻ ``setup``:
 
 
 .. code:: bash
@@ -35,9 +35,9 @@ Initiate the setup script by running the app with the ``setup`` flag:
 	$ ./nodebb setup
 
 
-The default settings are for a local server running on the default port, with a redis store on the same machine/port. 
+Mặc định cài đặt là cho máy chủ nội địa và chạy trên cổng mặc định, với redis lưu trữ trên cùng một máy/cổng. 
 
-Lastly, we run the forum.
+Cuối cùng, ta chạy diễn đàn.
 
 
 .. code:: bash
@@ -45,4 +45,4 @@ Lastly, we run the forum.
 	$ ./nodebb start
 
 
-NodeBB can also be started with helper programs, such as ``supervisor`` and ``forever``. :doc:`Take a look at the options here <../../running/index>`.
+NodeBB cũng có thể khởi động với các trình trợ giúp, như ``supervisor`` và ``forever``. :doc:`Đọc thêm về các tùy chọn ở đây <../../running/index>`.

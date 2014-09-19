@@ -1,137 +1,137 @@
 SmartOS
 ========
 
-Requirements
+Yêu cầu
 ----------------
 
-NodeBB requires the following software to be installed:
+NodeBB cần có những chương trình này được cài đặt:
 
-* Node.js (version 0.10 or greater, instructions below).  
-* Redis (version 2.6 or greater, instructions below) or MongoDB (version 2.6 or greater).  
-* nginx (version 1.3.13 or greater, **only if** intending to use nginx to proxy requests to a NodeBB server).  
+* Node.js (phiên bản 0.10 hoặc hơn, hướng dẫn ở dưới).  
+* Redis (phiên bản 2.6 hoặc hơn, hướng dẫn ở dưới) hoặc MongoDB (phiên bản 2.6 hoặc hơn).  
+* nginx (phiên bản 1.3.13 hoặc hơn, **chỉ khi** bạn có ý định sử dụng nginx tạo proxy cho NodeBB).  
 
-Server Access
+Truy cập máy chủ
 ----------------
 
-1. Sign in your Joyent account: `Joyent.com <http://joyent.com>`_
+1. Đăng nhập vào tài khoản Joyent của bạn: `Joyent.com <http://joyent.com>`_
 
-2. Select: ``Create Instance``
+2. Chọn: ``Create Instance``
 
-3. Create the newest ``smartos nodejs`` image.  
+3. Tạo image ``smartos nodejs`` mới nhất.  
 
-    **Note:** The following steps have been tested with images: ``smartos nodejs 13.1.0`` ``smartos nodejs 13.2.3``
+    **Chú ý:** Những bước này đã được thử nghiệm với image: ``smartos nodejs 13.1.0`` ``smartos nodejs 13.2.3``
 
-4. Wait for your instance to show ``Running`` then click on its name.
+4. Đợi phiên bản của bạn hiện ``Running`` sau đó click chọn tên của nó.
 
-5. Find your ``Login`` and admin password. If the ``Credentials`` section is missing, refresh the webpage.  
+5. Tìm ``Login`` và mật khẩu quản trị. Nếu khu vực ``Credentials`` bị thiếu, hãy tải lại trang.  
 
-    **Example:** ``ssh root@0.0.0.0`` ``A#Ca{c1@3`` 
+    **Ví dụ:** ``ssh root@0.0.0.0`` ``A#Ca{c1@3`` 
 
-6. SSH into your server as the admin not root: ``ssh admin@0.0.0.0``  
+6. Truy cập SSH theo quyền admin không root: ``ssh admin@0.0.0.0``  
 
-    **Note:** For Windows users that do not have ssh installed, here is an option: `Cygwin.com <http://cygwin.com>`_
+    **Chú ý:** Đối với những người dùng Windows chưa có cài đặt SSH thì đây là 1 tùy chọn: `Cygwin.com <http://cygwin.com>`_
 
-Installation
+Cài đặt
 ----------------
 
-1. Install NodeBB's software dependencies:
+1. Cài đặt trình phụ thuộc cho NodeBB:
 
     .. code:: bash
 
         $ sudo pkgin update
         $ sudo pkgin install scmgit nodejs build-essential ImageMagick redis
 
-    If any of those failed to install then:
+    Nếu một trong số dòng trên thất bại thì chạy lênh dưới:
 
     .. code:: bash
 
         $ pkgin search *failed-name*
         $ sudo pkgin install *available-name*
 
-2. **If needed** setup a redis-server with default settings as a service (automatically starts and restarts):  
+2. **Nếu cần** cài đặt redis-server với mặc định là service (tự động khởi động và khởi động lại):  
     
-    If you want to use MongoDB, LevelDB, or another database instead of Redis please look at the :doc:`Configuring Databases <../../configuring/databases>` section.
+   Nếu bạn muốn sử dụng MongoDB, LevelDB, hoặc 1 cơ sở dữ liệu khác ngoài Redis thì hãy đọc :doc:`Cấu hình cơ sở dữ liệu <../../configuring/databases>`.
     
-    **Note:** These steps quickly setup a redis server but do not fine-tuned it for production.  
+    **Chú ý:** Những bước này để cài đặt nhanh 1 server redis nhưng không tối ưu để dùng chính thức. 
     
-    **Note:** If you manually ran ``redis-server`` then exit out of it now.  
+    **Chú ý:** Nếu bạn đã chạy ``redis-server`` rồi thì hãy thoát khỏi nó ngay.
 
     .. code:: bash
 
         $ svcadm enable redis
         $ svcs svc:/pkgsrc/redis:default
-    **Note:** If the STATE is maintenance then:
+    **Chú ý:** Nếu STATE là maintenance thì:
     
     .. code:: bash
 
         $ scvadm clear redis  
 
-    *-* To shut down your redis-server and keep it from restarting:
+    *-* Để tắt redis-server và ngăn nó khởi động lại:
 
     .. code:: bash
 
         $ scvadm disable redis
 
-    *-* To start up your redis-server and have it always running:
+    *-* Để khởi động redis-server và cho nó luôn chạy:
 
     .. code:: bash
 
         $ scvadm enable redis
 
-3. Move to where you want to create the nodebb folder:
+3. Chuyển đến nơi mà bạn muốn tạo folder cài đặt nodebb:
 
     .. code:: bash
 
         $ cd /parent/directory/of/nodebb/
 
-4. Clone NodeBB's repository (you may replace the ending nodebb with a different folder name):
+4. Tạo bản sao NodeBB's repository (bạn có hể đổi nodebb ở cuối thành tên folder khác mà bạn muốn):
 
     .. code:: bash
 
         $ git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git nodebb
 
-5. Install NodeBB's npm dependencies:
+5. Cài đặt trình phụ thuộc npm của NodeBB:
 
     .. code:: bash
 
         $ cd nodebb
         $ npm install
 
-6. Run NodeBB's setup script:  
+6. Chạy mã cài đặt NodeBB:  
 
     .. code:: bash
 
         $ ./nodebb setup
 
-    a. ``URL used to access this NodeBB`` is either your public ip address from your ssh ``Login`` or your domain name pointing to that ip address.  
+    a. ``URL used to access this NodeBB`` là địa chỉ ip bạn dùng để đăng nhập SSH hoặc tên miền trỏ đến IP này.  
 
-        **Example:** ``http://0.0.0.0`` or ``http://example.org``  
+        **Ví dụ:** ``http://0.0.0.0`` hoặc ``http://example.org``  
 
-    b. ``Port number of your NodeBB`` is the port needed to access your site:  
+    b. ``Port number of your NodeBB`` là cổng cần để truy cập đến trang của bạn:  
 
-        **Note:** If you do not proxy your port with something like nginx then port 80 is recommended for production.  
+        **Chú ý:** Nếu bạn không sử dụng nginx hoặc 1 server web nào khác để tạo proxy thì nên để cổng 80.  
     
-    c. ``Please enter a NodeBB secret`` - Do not email this or post publicly.
+    c. ``Please enter a NodeBB secret`` - Không gửi email và công khai mã này.
     
-    d. ``IP or Hostname to bind to`` - Use default unless your server requires otherwise.
+    d. ``IP or Hostname to bind to`` - Sử dụng giá trị mặc định trừ khi máy chủ bạn có yêu cầu khác.
     
-    e. If you used the above steps to setup your redis-server then use the default redis settings.  
+    e. Nếu bạn sử dụng các bước cài đặt redis-server trên thì hãy sử dụng giá trị cài đặt mặc định cho redis.  
 
-7. Start NodeBB process manually:  
-    **Note:** This should not be used for production but instead create a deamon manually, use Forever, or use Supervisor. :doc:`Take a look at the options here <../../running/index>`.  
+7. Khởi động tiến trình NodeBB thủ công:  
+    **Chú ý:** Điều này không nên sử dụng cho bản chính thức nhưng thay vì sử dụng daemon thì nên sử dụng Forever hoặc Supervisor. :doc:`Đọc các tùy chỉnh ở đây <../../running/index>`.  
 
     .. code:: bash
 
         $ node app
 
-8. Visit your app!  
-    **Example:** With a port of 4567: ``http://0.0.0.0:4567`` or ``http://example.org:4567``
+8. Truy cập ứng dụng của bạn!  
+    **Ví dụ:** Với cổng là 4567: ``http://0.0.0.0:4567`` or ``http://example.org:4567``
 
-    **Note:** With port 80 the ``:80`` does not need to be entered.  
+    **Chú ý:** Với cổng là 80 thì ``:80`` không cần phải nhập.  
 
-**Note:** If these instructions are unclear or if you run into trouble, please let us know by `filing an issue <https://github.com/NodeBB/NodeBB/issues>`_.
+**Chú ý:** Nếu hướng dẫn trên không rõ ràng với bạn hoặc nếu bạn có gặp rắc rối gì, hãy cho chúng tôi biết bằng cách `báo cáo lỗi tại đây <https://github.com/NodeBB/NodeBB/issues>`_.
 
-Upgrading NodeBB
+Cập nhật NodeBB
 ----------------
 
-**Note:** Detailed upgrade instructions are listed in :doc:`Upgrading NodeBB <../../upgrading/index>`.
+**Chú ý:** Chi tiết về việc cập nhật NodeBB xin đọc :doc:`Cập nhật NodeBB <../../upgrading/index>`.

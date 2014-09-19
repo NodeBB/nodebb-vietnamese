@@ -1,17 +1,16 @@
-
 Ubuntu
 --------------------
 
-First, we install our base software stack:
+Đầu tiên, chúng ta cài đặt các trình nền:
 
 .. code:: bash
 
 	$ sudo apt-get install git nodejs redis-server imagemagick npm
 
 
-If you want to use MongoDB, LevelDB, or another database instead of Redis please look at the :doc:`Configuring Databases <../../configuring/databases>` section.
+Nếu bạn muốn sử dụng MongoDB, LevelDB, hoặc một cơ sở dữ liệu khác thay cho Redis  xin đọc :doc:`Cấu hình cơ sở dữ liệu <../../configuring/databases>`.
 
-**If your package manager only installed a version of Node.js that is less than 0.8 (e.g. Ubuntu 12.10, 13.04), use ``node --version`` to determine your version of Node.js:**
+**Nếu trình quản lý gói của bạn chỉ cài đặt phiên bản Node.js nhỏ hơn 0.8 (vd: Ubuntu 12.10, 13.04), dùng lệnh ``node --version`` để xác định phiên bản Node.js của bạn**
 
 
 .. code:: bash
@@ -19,10 +18,10 @@ If you want to use MongoDB, LevelDB, or another database instead of Redis please
 	$ sudo add-apt-repository ppa:chris-lea/node.js
 	$ sudo apt-get update && sudo apt-get dist-upgrade
 
-If you'd like to install Node.js v0.11, use the repository url ``ppa:chris-lea/node.js-devel`` instead.
+Nếu bạn muốn cài đặt Node.js v0.11, sử dụng url repo sau ``ppa:chris-lea/node.js-devel``.
 
 
-Next, clone this repository:
+Sau đó, tạo bản sao repo:
 
 
 .. code:: bash
@@ -30,7 +29,7 @@ Next, clone this repository:
 	$ git clone -b v0.5.x https://github.com/NodeBB/NodeBB.git nodebb
 
 
-Obtain all of the dependencies required by NodeBB:
+Cài đặt các trình phụ thuộc bởi NodeBB:
 
 .. code:: bash
 
@@ -38,7 +37,7 @@ Obtain all of the dependencies required by NodeBB:
     $ npm install
 
 
-Initiate the setup script by running the app with the ``setup`` flag:
+Thực hiện cài đặt bằng cách chạy ứng dựng với thẻ ``setup``:
 
 
 .. code:: bash
@@ -46,9 +45,9 @@ Initiate the setup script by running the app with the ``setup`` flag:
 	$ ./nodebb setup
 
 
-The default settings are for a local server running on the default port, with a redis store on the same machine/port. 
+Mặc định cài đặt là cho máy chủ nội địa và chạy trên cổng mặc định, với redis lưu trữ trên cùng một máy/cổng. 
 
-Lastly, we run the forum.
+Cuối cùng, ta chạy diễn đàn.
 
 
 .. code:: bash
@@ -56,4 +55,4 @@ Lastly, we run the forum.
 	$ ./nodebb start
 
 
-NodeBB can also be started with helper programs, such as ``forever``. :doc:`Take a look at the options here <../../running/index>`.
+NodeBB cũng có thể khởi động với các trình trợ giúp, như ``supervisor`` và ``forever``. :doc:`Đọc thêm về các tùy chọn ở đây <../../running/index>`.
